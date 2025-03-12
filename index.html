@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <title></title>
+  <meta name="description" content="A beautiful Jekyll theme for academics">
+
+  <!-- Website Icon -->
+  <link rel="icon" href="/assets/img/sunrise.png" type="image/x-icon">
+
+  <!-- Fonts and Icons -->
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons" />
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="/assets/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/academicons.min.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="/">
+
+  <SCRIPT LANGUAGE="JavaScript">
+
+    <!-- Begin
+    var theImages = new Array()
+    var theCredits = new Array()
+    
+    theImages[0] = '/assets/img/xitan1.jpg'
+    
+    theCredits[0] = 'Pei Huang'
+    
+    // do not edit anything below this line
+    
+    var j = 0
+    var p = theImages.length;
+    var preBuffer = new Array()
+    for (i = 0; i < p; i++){
+       preBuffer[i] = new Image()
+       preBuffer[i].src = theImages[i]
+    }
+    var whichImage = Math.floor(Math.random()*(p));
+    function showImage(){
+    document.write('<img class="profile-img img-responsive" src="'+theImages[whichImage]+'" align="middle" height="230">');
+    document.write('<p><font color="gray" size="1">Photo credit: '+theCredits[whichImage]+'</font></p>');
+    }
+    
+    //  End -->
+  </script>
+
+</head>
+
+<body>
+  <!-- Header -->
+  <nav id="navbar" class="navbar fixed-top navbar-expand-md grey lighten-5 z-depth-1 navbar-light">
+    <div class="container-fluid p-0">
+
+      <!-- <div class="row ml-1 ml-sm-0">
+        <span class="contact-icon text-center" style="line-height: 1em;">
+          <a href="mailto:xitan@buffalo.edu"><i class="fa fa-envelope-square gm-icon"></i></a>
+          <a href="https://scholar.google.com/citations?user=pO8h58oAAAAJ&hl=en" target="_blank"
+            title="Google Scholar"><i class="ai ai-google-scholar-square gs-icon"></i></a>
+          <a href="https://github.com/mintancy" target="_blank" title="GitHub"><i
+              class="fab fa-github-square gh-icon"></i></a>
+          <a href="https://www.linkedin.com/in/xi-tan-a62a9517a/" target="_blank" title="LinkedIn"><i
+              class="fab fa-linkedin li-icon"></i></a>
+          <a href="https://www.facebook.com/mintancy" target="_blank" title="Facebook"><i
+              class="fab fa-facebook-square fb-icon"></i></a>
+          <a href="https://twitter.com/XiTan13" target="_blank" title="Twitter"><i
+              class="fab fa-twitter-square tw-icon"></i></a>
+        </span>
+      </div> -->
+
+      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-right" id="navbarNav">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          <li class="nav-item navbar-active font-weight-bold">
+            <a class="nav-link" href="/">
+              Home
+
+              <span class="sr-only">(current)</span>
+
+            </a>
+          </li>
+
+          <!-- <li class="nav-item ">
+            <a class="nav-link" href="/assets/pdf/vitae.pdf">
+              Curriculum Vitae
+
+            </a>
+          </li> -->
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/team/">
+              Team
+
+            </a>
+          </li>
+
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/publications/">
+              Publications
+
+            </a>
+          </li>
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/teaching/">
+              Teaching
+
+            </a>
+          </li>
+
+
+          <!-- <li class="nav-item ">
+            <a class="nav-link" href="/service/">
+              Service
+
+            </a>
+          </li> -->
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/projects/">
+              Projects
+
+            </a>
+          </li>
+
+
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Scrolling Progress Bar -->
+  <progress id="progress" value="0">
+    <div class="progress-container">
+      <span class="progress-bar"></span>
+    </div>
+  </progress>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="col p-0 pt-4 pb-4 ">
+      <h1 class="pb-3 title text-left font-weight-bold">Secure and Reliable System Research Lab</h1>
+      <div class="d-flex justify-content-between align-items-start">
+        <div>
+          <!-- <h6 class="m-0 mb-2" style="font-size: 0.83em;"><a href="https://cactilab.github.io/" class="page-description" target="_blank">CyberspACe securiTy and forensIcs lab (CactiLab)</a></h6> -->
+          <h6 class="m-0 mb-2" style="font-size: 0.83em;">
+            <a href="https://eas.uccs.edu/cs" class="page-description" target="_blank">Department of Computer Science</a>, <a href="https://www.uccs.edu/" class="page-description" target="_blank">University of Colorado Colorado Springs</a>
+          </h6>
+        </div>
+        <!-- <img src="/assets/img/UCCS_CS_logo.png" width="300" height="300" /> -->
+      </div>
+    </div>
+
+
+    <!-- Introduction -->
+
+    <div style="display: flex; flex-wrap: wrap;">
+      <div class="text-justify p-0">
+        This lab aims to enhance the security and reliability of systems through novel solutions at the compiler, OS, and communication layers. We target systems that include microcontroller- and microprocessor-based platforms. 
+        We explore various types of cybersecurity challenges, including but not limited to control-flow integrity, side-channel attacks, and usability issues. 
+        <br> <br>
+        Dr. <a href="https://mintancy.github.io/team/xitan.html">Xi Tan</a> is the director of the lab. She is an Assistant Professor int the <a href="https://eas.uccs.edu/cs">Department of Computer Science</a> at <a href="https://www.uccs.edu/">the University of Colorado, Colorado Springs (UCCS)</a>.
+
+        <br> <br>
+        We have RA openings starting from Fall 2025. Please check details <a href="https://mintancy.github.io/team/prospective-students.html">here</a>.
+      </div>
+    </div>
+
+
+    <!-- News -->
+    <div class="news mt-3 p-0">
+      <h1 class="title mb-4 p-0">News</h1>
+
+      <div class="row p-0">
+        <div class="col-sm-2 p-0">
+          <span class="badge light-blue darken-1 font-weight-bold text-uppercase align-middle date ml-3">
+            Jan 20, 2025
+          </span>
+        </div>
+        <div class="col-sm-10 mt-2 mt-sm-0 ml-3 ml-md-0 p-0 font-weight-light text">
+          <p> [Teaching] Xi serves as the instructor of <a href="https://mintancy.github.io/teaching/uccs/cs2160/spring2025.html">CS 2160 Comp Org & Assembly Language</a> and <a href="https://mintancy.github.io/teaching/uccs/cs4910/spring2025.html">CS 4910 Intro to Computer Security</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="row p-0">
+        <div class="col-sm-2 p-0">
+          <span class="badge light-blue darken-1 font-weight-bold text-uppercase align-middle date ml-3">
+            Dec 13, 2024
+          </span>
+        </div>
+        <div class="col-sm-10 mt-2 mt-sm-0 ml-3 ml-md-0 p-0 font-weight-light text">
+          <p> [Service] Xi serves as a reviewer of TCPS 2025.
+          </p>
+        </div>
+      </div>
+
+      <div class="row p-0">
+        <div class="col-sm-2 p-0">
+          <span class="badge light-blue darken-1 font-weight-bold text-uppercase align-middle date ml-3">
+            Aug 26, 2024
+          </span>
+        </div>
+        <div class="col-sm-10 mt-2 mt-sm-0 ml-3 ml-md-0 p-0 font-weight-light text">
+          <p> [Teaching] Xi serves as the instructor of <a href="https://mintancy.github.io/teaching/uccs/cs5220/fall2024.html">CS 5220 Computer Communication</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="row p-0">
+        <div class="col-sm-2 p-0">
+          <span class="badge light-blue darken-1 font-weight-bold text-uppercase align-middle date ml-3">
+            Aug 22, 2024
+          </span>
+        </div>
+        <div class="col-sm-10 mt-2 mt-sm-0 ml-3 ml-md-0 p-0 font-weight-light text">
+          <p> [Service] Xi serves as a committee member of the UCCS PhD Cybersecurity program.
+          </p>
+        </div>
+      </div>
+
+      <div class="row p-0">
+        <div class="col-sm-2 p-0">
+          <span class="badge light-blue darken-1 font-weight-bold text-uppercase align-middle date ml-3">
+            Aug 19, 2024
+          </span>
+        </div>
+        <div class="col-sm-10 mt-2 mt-sm-0 ml-3 ml-md-0 p-0 font-weight-light text">
+          <p> [Job] Xi joined the <a href="https://www.uccs.edu/">University of Colorado Colorado Springs</a> as an
+            Assistant Professor!
+          </p>
+        </div>
+      </div>
+
+      <div class="row p-0">
+        <div class="col-sm-2 p-0">
+          <span class="badge light-blue darken-1 font-weight-bold text-uppercase align-middle date ml-3">
+            May 13, 2024
+          </span>
+        </div>
+        <div class="col-sm-10 mt-2 mt-sm-0 ml-3 ml-md-0 p-0 font-weight-light text">
+          <p> [Paper] New paper entitled "SoK: Where's the “up”?! A Comprehensive (bottom-up) Study on the Security of
+            Arm Cortex-M Systems" will appear in <b>USENIX WOOT</b> '24! Check out the open-source repo <a
+              href="https://github.com/CactiLab/SoK-Cortex-M">[here]</a>!
+          </p>
+        </div>
+      </div>
+
+      <div class="row p-0">
+        <div class="col-sm-2 p-0">
+          <span class="badge light-blue darken-1 font-weight-bold text-uppercase align-middle date ml-3">
+            Dec 12, 2023
+          </span>
+        </div>
+        <div class="col-sm-10 mt-2 mt-sm-0 ml-3 ml-md-0 p-0 font-weight-light text">
+          <p> [Award] Xi won the 2nd place of <a
+              href="https://web.archive.org/web/20240716120154/https://engineering.buffalo.edu/computer-science-engineering/news-and-events/events/russell-l-agrusa-cse-student-innovation-competition/agrusa-competition-2023.html">
+              Russell L. Agrusa CSE Student Innovation Competition</a>!
+          </p>
+        </div>
+      </div>
+
+      <div class="row p-0">
+        <div class="col-sm-2 p-0">
+          <span class="badge light-blue darken-1 font-weight-bold text-uppercase align-middle date ml-3">
+            Nov 15, 2023
+          </span>
+        </div>
+        <div class="col-sm-10 mt-2 mt-sm-0 ml-3 ml-md-0 p-0 font-weight-light text">
+          <p> [Paper] New paper entitled "Is the Canary Dead? On the Effectiveness of Stack Canaries on Microcontroller
+            Systems" will appear in <b>SAC</b>'24!
+          </p>
+        </div>
+      </div>
+
+      <div class="row p-0">
+        <div class="col-sm-2 p-0">
+          <span class="badge light-blue darken-1 font-weight-bold text-uppercase align-middle date ml-3">
+            Aug 10, 2023
+          </span>
+        </div>
+        <div class="col-sm-10 mt-2 mt-sm-0 ml-3 ml-md-0 p-0 font-weight-light text">
+          <p> [Paper] New paper entitled "SHERLOC: Secure and Holistic Control-Flow Violation Detection on Embedded
+            Systems" will appear in <b>CCS</b>'23! Check out the open-source repo <a
+              href="https://github.com/CactiLab/Sherloc-Cortex-M-CFVD">[here]</a>!
+          </p>
+        </div>
+      </div>
+
+      <div class="row p-0">
+        <div class="col-sm-2 p-0">
+          <span class="badge light-blue darken-1 font-weight-bold text-uppercase align-middle date ml-3">
+            Apr 26, 2023
+          </span>
+        </div>
+        <div class="col-sm-10 mt-2 mt-sm-0 ml-3 ml-md-0 p-0 font-weight-light text">
+          <p> [CTF] Team Cacti (Zheyuan Ma, Gaoxiang Liu, <b>Xi Tan</b>, Md Armanuzzaman, Trevor Schupbach, Safayat Bin
+            Hakim, Sagar Mohan, and Hiu Laam Chau) advised by Dr. Zhao and Dr. Hu placed 4th in <b>MITRE eCTF</b> 2023!
+            Check out our open-source repo <a href="https://github.com/CactiLab/2023-ectf-UB-Cacti-design">[here]</a>!
+          </p>
+        </div>
+      </div>
+
+      <div class="row p-0">
+        <div class="col-sm-2 p-0">
+          <span class="badge light-blue darken-1 font-weight-bold text-uppercase align-middle date ml-3">
+            Feb 27, 2023
+          </span>
+        </div>
+        <div class="col-sm-10 mt-2 mt-sm-0 ml-3 ml-md-0 p-0 font-weight-light text">
+          <p> [Paper] New paper entitled "Return-to-Non-Secure Vulnerabilities on ARM Cortex-M TrustZone: Attack and
+            Defense" will appear in <b>DAC</b>'23! Check out our open-source repo <a
+              href="https://github.com/CactiLab/ret2ns-Cortex-M-TrustZone">[here]</a>!
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <p>
+      <button class="btn btn-outline-dark btn-sm" type="button" data-toggle="collapse" data-target="#oldnews_button"
+        aria-expanded="false" aria-controls="oldnews_button">
+        <span
+          style="font-size:small; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';">older
+          news</span>
+      </button>
+    </p>
+    <div class="collapse" id="oldnews_button">
+
+      <div class="row p-0">
+        <div class="col-sm-2 p-0">
+          <span class="badge light-blue darken-1 font-weight-bold text-uppercase align-middle date ml-3">
+            xx, xxxx
+          </span>
+        </div>
+        <div class="col-sm-10 mt-2 mt-sm-0 ml-3 ml-md-0 p-0 font-weight-light text">
+          <p> Old news
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- collaborations -->
+    <!-- <div class="news mt-3 p-0">
+      <h1 class="title mb-4 p-0">Collaborations</h1>
+      <div class="row">
+        <div class="col-sm-10">
+          <h5 class="font-weight-bold">Professors</h5>
+        </div>
+      </div>
+
+      <div id="member-container">
+        <div id="member">
+          <img src="/assets/img/professors/zimingzh.jpg">
+          <p>
+            <b> <a href="https://zzm7000.github.io/">Ziming Zhao</a></b><br>
+            Assistant Professor<br>
+            University at Buffalo
+          </p>
+        </div>
+
+        <div id="member">
+          <img src="/assets/img/professors/hongxinhu.jpg">
+          <p>
+            <b> <a href="https://cse.buffalo.edu/~hongxinh/">Hongxin Hu</a></b><br>
+            Associate Professor<br>
+            University at Buffalo
+          </p>
+        </div>
+      </div>
+
+      <div id="member-container">
+        <div class="row">
+          <div class="col-sm-10">
+            <h5 class="font-weight-bold">Students</h5>
+          </div>
+        </div>
+
+        <div id="member">
+          <img src="">
+          <p>
+            <b>xx</b><br>
+            CS PhD Student, <br>
+            MS from xx
+            2019 Fall -
+          </p>
+        </div>
+        <div id="member">
+          <img src="">
+          <p>
+
+            <b>xx</b><br>
+            CS PhD Candidate, BS/MS from xx <br>
+            2019 Fall -
+          </p>
+        </div>
+
+      </div>
+    </div> -->
+
+    <!--
+    <div class="col p-0 pt-4 pb-4 ">
+      <div class="d-flex justify-content-between align-items-start">
+        <div>
+        </div>
+        <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=93TYgr1Cp6fZZJhq9uJ8h9pqrw2twgp_5TT45wjLZkA&cl=ffffff&w=a"></script>
+      </div>
+    </div>-->
+
+  </div>
+
+
+
+  <!-- Footer -->
+  <footer>
+    Last update: Feb. 2025 &copy; Copyright 2025 Xi Tan.
+
+  </footer>
+
+  <!-- Core JavaScript Files -->
+  <script src="/assets/js/jquery.min.js" type="text/javascript"></script>
+  <script src="/assets/js/popper.min.js" type="text/javascript"></script>
+  <script src="/assets/js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/assets/js/mdb.min.js" type="text/javascript"></script>
+  <script async="" src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"
+    integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script src="/assets/js/common.js"></script>
+
+  <!-- Scrolling Progress Bar -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+      var navbarHeight = $('#navbar').outerHeight(true);
+      $('body').css({ 'padding-top': navbarHeight });
+      $('progress-container').css({ 'padding-top': navbarHeight });
+      var progressBar = $('#progress');
+      progressBar.css({ 'top': navbarHeight });
+      var getMax = function () { return $(document).height() - $(window).height(); }
+      var getValue = function () { return $(window).scrollTop(); }
+      // Check if the browser supports the progress element.
+      if ('max' in document.createElement('progress')) {
+        // Set the 'max' attribute for the first time.
+        progressBar.attr({ max: getMax() });
+        progressBar.attr({ value: getValue() });
+
+        $(document).on('scroll', function () {
+          // On scroll only the 'value' attribute needs to be calculated.
+          progressBar.attr({ value: getValue() });
+        });
+
+        $(window).resize(function () {
+          var navbarHeight = $('#navbar').outerHeight(true);
+          $('body').css({ 'padding-top': navbarHeight });
+          $('progress-container').css({ 'padding-top': navbarHeight });
+          progressBar.css({ 'top': navbarHeight });
+          // On resize, both the 'max' and 'value' attributes need to be calculated.
+          progressBar.attr({ max: getMax(), value: getValue() });
+        });
+      } else {
+        var max = getMax(), value, width;
+        var getWidth = function () {
+          // Calculate the window width as a percentage.
+          value = getValue();
+          width = (value / max) * 100;
+          width = width + '%';
+          return width;
+          return width;
+        }
+        var setWidth = function () { progressBar.css({ width: getWidth() }); };
+        setWidth();
+        $(document).on('scroll', setWidth);
+        $(window).on('resize', function () {
+          // Need to reset the 'max' attribute.
+          max = getMax();
+          setWidth();
+        });
+      }
+    });
+  </script>
+
+  <!-- Code Syntax Highlighting -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <script src="/assets/js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <!-- Project Cards Layout -->
+  <script type="text/javascript">
+    var $grid = $('#projects');
+
+    // Trigger after images load.
+    $grid.imagesLoaded().progress(function () {
+      $grid.masonry({ percentPosition: true });
+      $grid.masonry('layout');
+    });
+  </script>
+
+  <!-- Enable Tooltips -->
+  <script type="text/javascript">
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  <!-- Google Analytics -->
+  <script>
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+
+</html>
