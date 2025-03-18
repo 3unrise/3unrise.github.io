@@ -124,7 +124,12 @@
         <li>
           <h5>
             <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-            <span> - {{ post.date | date: "%B %d, %Y" }}</span>
+            <p>
+              <em>{{ post.date | date: "%B %d, %Y" }}</em>
+              {% if post.author %}
+              | By {{ post.author }}
+              {% endif %}
+            </p>
           </h5>
 
           <!-- Display Tags for Each Post -->
@@ -150,7 +155,12 @@
       <!-- Individual Post: Just show the content -->
       <article>
         <h1>{{ page.title }}</h1>
-        <p><em>{{ page.date | date: "%B %d, %Y" }}</em></p>
+        <p>
+          <em>{{ page.date | date: "%B %d, %Y" }}</em>
+          {% if page.author %}
+          | By {{ page.author }}
+          {% endif %}
+        </p>
         {% if page.tags %}
 
         <p>Tags:
