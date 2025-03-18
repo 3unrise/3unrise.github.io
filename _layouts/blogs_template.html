@@ -114,9 +114,11 @@
 
         <div class="row m-0 p-0" style="border-top: 1px solid #ddd; flex-direction: row-reverse;"></div>
 
+        <h6 class="m-0 mb-2" style="font-size: 0.83em;"></h6>
+
         {% assign posts_by_year = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
         {% for year in posts_by_year %}
-        <h2>{{ year.name }}</h2>
+        <h3>{{ year.name }}</h3>
         <ul>
           {% for post in year.items %}
             <li>
