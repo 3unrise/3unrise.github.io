@@ -3,11 +3,9 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-  <title>Blogs</title>
-  <meta name="description" content="A beautiful Jekyll theme for academics">
+  <!-- <title>Blogs</title> -->
+  <title>{{ page.title }} - {{ site.title }}</title>
 
   <!-- Website Icon -->
   <link rel="icon" href="/assets/img/sunrise.png" type="image/x-icon">
@@ -21,34 +19,6 @@
   <link rel="stylesheet" href="/assets/css/academicons.min.css">
   <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="canonical" href="/">
-
-  <SCRIPT LANGUAGE="JavaScript">
-
-    <!-- Begin
-    var theImages = new Array()
-    var theCredits = new Array()
-    
-    theImages[0] = '/assets/img/xitan1.jpg'
-    
-    theCredits[0] = 'Pei Huang'
-    
-    // do not edit anything below this line
-    
-    var j = 0
-    var p = theImages.length;
-    var preBuffer = new Array()
-    for (i = 0; i < p; i++){
-       preBuffer[i] = new Image()
-       preBuffer[i].src = theImages[i]
-    }
-    var whichImage = Math.floor(Math.random()*(p));
-    function showImage(){
-    document.write('<img class="profile-img img-responsive" src="'+theImages[whichImage]+'" align="middle" height="230">');
-    document.write('<p><font color="gray" size="1">Photo credit: '+theCredits[whichImage]+'</font></p>');
-    }
-    
-    //  End -->
-  </script>
 
 </head>
 
@@ -135,18 +105,29 @@
   </progress>
 
   <!-- Content -->
-  <div class="content">
-    <h1>Blog Posts</h1>
-    <ul>
-      {% for post in site.posts %}
-        <li>
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          <span> - {{ post.date | date: "%B %d, %Y" }}</span>
-        </li>
-      {% endfor %}
-    </ul>
-
-  </div>
+  <main>
+    {% if page.url == '/blogs/' %}
+      <!-- Listing page: Loop through all posts sorted by date (newest first) -->
+      <h2>{{ page.title }}</h2>
+      <ul>
+        {% for post in site.posts %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <span> - {{ post.date | date: "%B %d, %Y" }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <!-- Individual blog post content -->
+      <article>
+        <h2>{{ page.title }}</h2>
+        <p><em>{{ page.date | date: "%B %d, %Y" }}</em></p>
+        <div>
+          {{ content }}
+        </div>
+      </article>
+    {% endif %}
+  </main>
 
 
 
