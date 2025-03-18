@@ -114,14 +114,19 @@
 
         <div class="row m-0 p-0" style="border-top: 1px solid #ddd; flex-direction: row-reverse;"></div>
 
+        {% assign posts_by_year = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+        {% for year in posts_by_year %}
+        <h2>{{ year.name }}</h2>
         <ul>
-          {% for post in site.posts %}
+          {% for post in year.items %}
             <li>
               <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
               <span> - {{ post.date | date: "%B %d, %Y" }}</span>
             </li>
           {% endfor %}
         </ul>
+        {% endfor %}
+        
         <!-- Debug output: display the total number of posts -->
         <p>Total posts: {{ site.posts | size }}</p>
       {% else %}
