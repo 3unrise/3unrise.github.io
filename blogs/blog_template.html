@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Markdown in HTML Example</title>
+  <meta name="description" content="A beautiful Jekyll theme for academics">
+
+  <!-- Website Icon -->
+  <link rel="icon" href="/assets/img/sunrise.png" type="image/x-icon">
+
+  <!-- Fonts and Icons -->
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons" />
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="/assets/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/academicons.min.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="/">
+
+  <!-- Include Marked.js from a CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+</head>
+<body>
+  <!-- Container holding Markdown content -->
+  <div id="markdown-content" style="display:none;">
+    # Welcome to My Page
+    This is a paragraph with **bold text** and *italic text*.
+
+    - List item one
+    - List item two
+    - List item three
+
+    [Visit OpenAI](https://openai.com)
+  </div>
+
+  <!-- Container where converted HTML will be inserted -->
+  <div id="html-content"></div>
+
+  <script>
+    // Retrieve the Markdown text from the hidden container
+    const markdownText = document.getElementById('markdown-content').textContent;
+
+    // Convert Markdown to HTML using Marked.js
+    const htmlContent = marked.parse(markdownText);
+
+    // Insert the converted HTML into the target container
+    document.getElementById('html-content').innerHTML = htmlContent;
+  </script>
+</body>
+</html>
