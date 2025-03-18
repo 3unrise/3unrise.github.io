@@ -2,3 +2,5 @@ title: My Website
 description: A website built with Jekyll on GitHub Pages.
 baseurl: "" # Leave empty if you’re using the root domain
 url: "https://3unrise.github.io/"
+
+permalink: /:year/:month/:day/:title/
