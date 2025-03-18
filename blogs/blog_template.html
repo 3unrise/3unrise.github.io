@@ -24,6 +24,48 @@
   <!-- Include Marked.js from a CDN -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
+  <!-- style for markdown -->
+  <style>
+    /* General page styles */
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    .navbar { background-color: #333; padding: 1rem; color: #fff; }
+    .container { padding: 2rem; }
+    .sidebar { float: left; width: 20%; padding: 1rem; background: #f4f4f4; }
+    .main-content { float: left; width: 75%; padding: 1rem; margin-left: 5%; }
+    .clearfix::after { content: ""; display: table; clear: both; }
+
+    /* Markdown-specific styling */
+    .markdown-content h1 {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.3em;
+    }
+    .markdown-content h2 {
+      font-size: 1.75em;
+      margin-bottom: 0.5em;
+    }
+    .markdown-content p {
+      margin-bottom: 1em;
+      line-height: 1.6;
+    }
+    .markdown-content ul {
+      list-style-type: disc;
+      margin-left: 20px;
+      margin-bottom: 1em;
+    }
+    .markdown-content a {
+      color: blue;
+      text-decoration: underline;
+    }
+    .markdown-content strong {
+      font-weight: bold;
+    }
+    .markdown-content em {
+      font-style: italic;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -39,15 +81,12 @@
       </button>
       <div class="collapse navbar-collapse text-right" id="navbarNav">
         <ul class="navbar-nav ml-auto flex-nowrap">
-          <li class="nav-item ">
+          <li class="nav-item">
             <a class="nav-link" href="/">
               Home
 
             </a>
           </li>
-
-
-
 
           <!-- <li class="nav-item ">
             <a class="nav-link" href="/assets/pdf/vitae.pdf">
@@ -56,12 +95,14 @@
             </a>
           </li> -->
 
+
           <li class="nav-item ">
             <a class="nav-link" href="/team/">
               Team
 
             </a>
           </li>
+
 
           <li class="nav-item ">
             <a class="nav-link" href="/publications/">
@@ -70,33 +111,31 @@
             </a>
           </li>
 
-
-
           <!-- <li class="nav-item ">
             <a class="nav-link" href="/teaching/">
               Teaching
 
             </a>
           </li>
-          </li>  -->
+          </li> -->
 
-          <li class="nav-item ">
+
+          <li class="nav-item navbar-active font-weight-bold ">
             <a class="nav-link" href="/blogs/">
               Blogs
-
-            </a>
-          </li>
-
-
-
-          <li class="nav-item navbar-active font-weight-bold">
-            <a class="nav-link" href="/projects/">
-              Projects
 
               <span class="sr-only">(current)</span>
 
             </a>
           </li>
+
+          <li class="nav-item ">
+            <a class="nav-link" href="/projects/">
+              Projects
+
+            </a>
+          </li>
+
 
 
         </ul>
