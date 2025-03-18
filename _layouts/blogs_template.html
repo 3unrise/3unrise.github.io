@@ -105,19 +105,20 @@
   </progress>
 
   <!-- Content -->
-  <main>
-    {% if page.url == '/blogs/' %}
+  <div class="content">
+    <main>
+      {% if page.url == '/_posts/' %}
       <!-- Listing page: Loop through all posts sorted by date (newest first) -->
       <h2>{{ page.title }}</h2>
       <ul>
         {% for post in site.posts %}
-          <li>
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-            <span> - {{ post.date | date: "%B %d, %Y" }}</span>
-          </li>
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <span> - {{ post.date | date: "%B %d, %Y" }}</span>
+        </li>
         {% endfor %}
       </ul>
-    {% else %}
+      {% else %}
       <!-- Individual blog post content -->
       <article>
         <h2>{{ page.title }}</h2>
@@ -126,9 +127,9 @@
           {{ content }}
         </div>
       </article>
-    {% endif %}
-  </main>
-
+      {% endif %}
+    </main>
+  </div>
 
 
   <!-- Footer -->
