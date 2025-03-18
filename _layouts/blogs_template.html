@@ -122,8 +122,10 @@
         <ul>
           {% for post in year.items %}
             <li>
-              <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
-              <span> - {{ post.date | date: "%B %d, %Y" }}</span>
+              <h5>
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                <span> - {{ post.date | date: "%B %d, %Y" }}</span>
+              </h5>
             </li>
           {% endfor %}
         </ul>
