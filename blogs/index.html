@@ -3,9 +3,10 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Lab</title>
+
+  <title>Blogs</title>
   <meta name="description" content="A beautiful Jekyll theme for academics">
 
   <!-- Website Icon -->
@@ -19,7 +20,36 @@
   <link rel="stylesheet" href="/assets/css/all.min.css">
   <link rel="stylesheet" href="/assets/css/academicons.min.css">
   <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="canonical" href="/team/">
+  <link rel="canonical" href="/">
+
+  <SCRIPT LANGUAGE="JavaScript">
+
+    <!-- Begin
+    var theImages = new Array()
+    var theCredits = new Array()
+    
+    theImages[0] = '/assets/img/xitan1.jpg'
+    
+    theCredits[0] = 'Pei Huang'
+    
+    // do not edit anything below this line
+    
+    var j = 0
+    var p = theImages.length;
+    var preBuffer = new Array()
+    for (i = 0; i < p; i++){
+       preBuffer[i] = new Image()
+       preBuffer[i].src = theImages[i]
+    }
+    var whichImage = Math.floor(Math.random()*(p));
+    function showImage(){
+    document.write('<img class="profile-img img-responsive" src="'+theImages[whichImage]+'" align="middle" height="230">');
+    document.write('<p><font color="gray" size="1">Photo credit: '+theCredits[whichImage]+'</font></p>');
+    }
+    
+    //  End -->
+  </script>
+
 </head>
 
 <body>
@@ -35,7 +65,7 @@
       </button>
       <div class="collapse navbar-collapse text-right" id="navbarNav">
         <ul class="navbar-nav ml-auto flex-nowrap">
-          <li class="nav-item ">
+          <li class="nav-item">
             <a class="nav-link" href="/">
               Home
 
@@ -45,19 +75,20 @@
           <!-- <li class="nav-item ">
             <a class="nav-link" href="/assets/pdf/vitae.pdf">
               Curriculum Vitae
+
             </a>
           </li> -->
 
+
           <li class="nav-item ">
             <a class="nav-link" href="/team/">
-              Lab
-
-              <span class="sr-only">(current)</span>
+              Team
 
             </a>
           </li>
 
-          <li class="nav-item navbar-active font-weight-bold">
+
+          <li class="nav-item ">
             <a class="nav-link" href="/publications/">
               Publications
 
@@ -73,9 +104,11 @@
           </li> -->
 
 
-          <li class="nav-item ">
-            <a class="nav-link" href="/service/">
+          <li class="nav-item navbar-active font-weight-bold ">
+            <a class="nav-link" href="/blogs/">
               Blogs
+
+              <span class="sr-only">(current)</span>
 
             </a>
           </li>
@@ -86,6 +119,7 @@
 
             </a>
           </li>
+
 
 
         </ul>
@@ -102,51 +136,40 @@
 
   <!-- Content -->
   <div class="content">
-
-    <h1>Secure and Reliable System Research Lab</h1>
-    <h6>
-      University of Colorado Colorado Springs
-    </h6>
-
-    <h6>
-      This lab aims to enhance the security and reliability of the systems via new novel solutions at the compiler, OS,
-      and communication layers. The systems we target include microcontroller- and microprocessor-based systems.
-    </h6>
+    <div class="col p-0 pt-4 pb-4 ">
+      <h1>Blogs</h1>
 
 
-    <p><br /></p>
+      <div class="row m-0 p-0" style="border-top: 1px solid #ddd; flex-direction: row-reverse;"></div>
 
-    <div class="row m-0 p-0" style="border-top: 1px solid #ddd; flex-direction: row-reverse;">
-      <div class="col-sm-1 mt-2 p-0 pr-1">
-        <h3 class="bibliography-year">Projects</h3>
+      <!-- Introduction -->
+      <h5 class="mt-4">2025</h5>
+      <div class="card mt-3">
+        <div class="p-3">
+          <div class="row">
+            <div class="col-sm-12">
+              <h5 class="font-weight-bold">Title: xxx </h5>
+              <div class="text-justify p-0">
+
+                <div class="card-text font-weight-light list-group list-group-flush">
+                  <p></p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-sm-11 p-0">
-        <ol class="bibliography">
 
-        </ol>
-      </div>
     </div>
-
-
-    <div class="row m-0 p-0" style="border-top: 1px solid #ddd; flex-direction: row-reverse;">
-      <div class="col-sm-1 mt-2 p-0 pr-1">
-        <h3 class="bibliography-year">Members</h3>
-      </div>
-      <div class="col-sm-11 p-0">
-        <ol class="bibliography">
-
-        </ol>
-      </div>
-    </div>
-
-
 
   </div>
 
+
+
   <!-- Footer -->
   <footer>
-    &copy; Copyright 2025 SUNRISE
-
+    Copyright 2025 SUNRISE.
 
   </footer>
 
@@ -200,6 +223,7 @@
           width = (value / max) * 100;
           width = width + '%';
           return width;
+          return width;
         }
         var setWidth = function () { progressBar.css({ width: getWidth() }); };
         setWidth();
@@ -218,30 +242,9 @@
   <script src="/assets/js/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
-  <!-- Script Used for Randomizing the Projects Order -->
-  <!-- <script type="text/javascript">
-    $.fn.shuffleChildren = function() {
-      $.each(this.get(), function(index, el) {
-        var $el = $(el);
-        var $find = $el.children();
-
-        $find.sort(function() {
-          return 0.5 - Math.random();
-        });
-
-        $el.empty();
-        $find.appendTo($el);
-      });
-    };
-    $("#projects").shuffleChildren();
-  </script> -->
-
   <!-- Project Cards Layout -->
   <script type="text/javascript">
     var $grid = $('#projects');
-
-    // $grid.masonry({ percentPosition: true });
-    // $grid.masonry('layout');
 
     // Trigger after images load.
     $grid.imagesLoaded().progress(function () {
