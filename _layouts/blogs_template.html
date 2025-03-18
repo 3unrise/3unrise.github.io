@@ -107,26 +107,28 @@
   <!-- Content -->
   <div class="content">
     <main>
-      {% if page.url == '/blogs/' %}
-      <!-- Listing page: Loop through all posts sorted by date (newest first) -->
-      <h2>{{ page.title }}</h2>
-      <ul>
-        {% for post in site.posts %}
-        <li>
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          <span> - {{ post.date | date: "%B %d, %Y" }}</span>
-        </li>
-        {% endfor %}
-      </ul>
-      {% else %}
-      <!-- Individual blog post content -->
-      <article>
+      {% if page.listing %}
+        <!-- Listing Page: Loop through all posts -->
         <h2>{{ page.title }}</h2>
-        <p><em>{{ page.date | date: "%B %d, %Y" }}</em></p>
-        <div>
-          {{ content }}
-        </div>
-      </article>
+        <ul>
+          {% for post in site.posts %}
+            <li>
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              <span> - {{ post.date | date: "%B %d, %Y" }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+        <!-- Debug output: display the total number of posts -->
+        <p>Total posts: {{ site.posts | size }}</p>
+      {% else %}
+        <!-- Individual Post: Just show the content -->
+        <article>
+          <h2>{{ page.title }}</h2>
+          <p><em>{{ page.date | date: "%B %d, %Y" }}</em></p>
+          <div>
+            {{ content }}
+          </div>
+        </article>
       {% endif %}
     </main>
   </div>
