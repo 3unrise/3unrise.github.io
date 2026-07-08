@@ -3,7 +3,7 @@
 
   var BIB_PATH = '/assets/bib/publications.bib';
   var AUTHOR_LINKS_PATH = '/assets/data/author-links.json';
-  var LAB_MEMBER_NAMES = ['Xi Tan'];
+  var LAB_MEMBERS_PATH = '/assets/data/lab-members.json';
   var MONTH_MAP = {
     jan: 1,
     feb: 2,
@@ -266,6 +266,22 @@
     return map;
   }
 
+  function buildLabMemberSet(rawLabMembers) {
+    var set = new Set();
+    if (!Array.isArray(rawLabMembers)) {
+      return set;
+    }
+
+    rawLabMembers.forEach(function (name) {
+      var key = normalizeAuthorKey(name);
+      if (key) {
+        set.add(key);
+      }
+    });
+
+    return set;
+  }
+
   function normalizePersonName(name) {
     var clean = cleanupValue(name);
     if (clean.indexOf(',') !== -1) {
@@ -277,14 +293,14 @@
     return clean;
   }
 
-  function isLabMember(name) {
-    var normalized = name.replace(/\*/g, '').trim().toLowerCase();
-    return LAB_MEMBER_NAMES.some(function (member) {
-      return member.toLowerCase() === normalized;
-    });
+  function isLabMember(name, labMemberSet) {
+    if (!labMemberSet) {
+      return false;
+    }
+    return labMemberSet.has(normalizeAuthorKey(name));
   }
 
-  function renderAuthors(fields, authorLinkMap) {
+  function renderAuthors(fields, authorLinkMap, labMemberSet) {
     var names = splitAuthors(fields.author).map(normalizePersonName);
     if (names.length === 0) {
       return '';
@@ -292,8 +308,8 @@
 
     var htmlNames = names.map(function (name, index) {
       var safeName = escapeHtml(name);
-      if (isLabMember(name)) {
-        safeName = '<strong>' + safeName + '</strong>';
+      if (isLabMember(name, labMemberSet)) {
+        safeName = '<em class="lab-member">' + safeName + '</em>';
       }
 
       var key = normalizeAuthorKey(name);
@@ -339,7 +355,7 @@
       escapeHtml(url) + '" target="_blank" rel="noopener">' + label + '</a>';
   }
 
-  function renderEntry(entry, authorLinkMap) {
+  function renderEntry(entry, authorLinkMap, labMemberSet) {
     var f = entry.fields;
     var abbr = f.abbr || '';
     var venueUrl = f.venue_url || f.url || '';
@@ -356,7 +372,7 @@
     }
 
     var title = escapeHtml(f.title || '(Untitled)');
-    var authors = renderAuthors(f, authorLinkMap);
+    var authors = renderAuthors(f, authorLinkMap, labMemberSet);
     var venueText = escapeHtml(buildVenueText(entry));
     var abstractId = 'abs-' + escapeHtml(entry.citationKey || Math.random().toString(36).slice(2));
 
@@ -396,7 +412,7 @@
       '</div></div></div></li>';
   }
 
-  function renderGrouped(entries, authorLinkMap) {
+  function renderGrouped(entries, authorLinkMap, labMemberSet) {
     var groups = {};
 
     entries.forEach(function (entry) {
@@ -424,7 +440,7 @@
         '<div class="col-sm-11 p-0">' +
         '<ol class="bibliography">' +
         yearEntries.map(function (entry) {
-          return renderEntry(entry, authorLinkMap);
+          return renderEntry(entry, authorLinkMap, labMemberSet);
         }).join('') +
         '</ol></div></div>';
     });
@@ -507,7 +523,7 @@
     container.innerHTML = '<p>No publications matched "' + escapeHtml(query) + '".</p>';
   }
 
-  function attachSearch(entries, authorLinkMap, container) {
+  function attachSearch(entries, authorLinkMap, labMemberSet, container) {
     var input = document.getElementById('publications-search');
     var clearButton = document.getElementById('publications-search-clear');
     var status = document.getElementById('publications-search-status');
@@ -520,7 +536,7 @@
       if (filtered.length === 0) {
         renderEmptyResult(container, query);
       } else {
-        container.innerHTML = renderGrouped(filtered, authorLinkMap);
+        container.innerHTML = renderGrouped(filtered, authorLinkMap, labMemberSet);
       }
       updateSearchStatus(status, filtered.length, total, query);
       return filtered.length;
@@ -585,17 +601,31 @@
         return {};
       });
 
-    Promise.all([bibPromise, authorLinksPromise])
+    // Keep lab members optional: if JSON is missing, render names without highlight.
+    var labMembersPromise = fetch(LAB_MEMBERS_PATH)
+      .then(function (response) {
+        if (!response.ok) {
+          return [];
+        }
+        return response.json();
+      })
+      .catch(function () {
+        return [];
+      });
+
+    Promise.all([bibPromise, authorLinksPromise, labMembersPromise])
       .then(function (result) {
         var bibText = result[0];
         var authorLinks = result[1];
+        var labMembers = result[2];
         var authorLinkMap = buildAuthorLinkMap(authorLinks);
+        var labMemberSet = buildLabMemberSet(labMembers);
         var entries = prepareEntries(parseBibTeX(bibText));
         if (entries.length === 0) {
           container.innerHTML = '<p>No publications found in bib file.</p>';
           return;
         }
-        attachSearch(entries, authorLinkMap, container);
+        attachSearch(entries, authorLinkMap, labMemberSet, container);
       })
       .catch(function (err) {
         renderError(err.message);
