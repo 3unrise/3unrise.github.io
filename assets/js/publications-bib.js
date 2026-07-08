@@ -527,10 +527,27 @@
         container.innerHTML = renderGrouped(filtered, authorLinkMap);
       }
       updateSearchStatus(status, filtered.length, total, query);
+      return filtered.length;
     }
 
     if (input) {
       input.addEventListener('input', renderByQuery);
+      input.addEventListener('keydown', function (event) {
+        if (event.key !== 'Enter') {
+          return;
+        }
+
+        event.preventDefault();
+        var count = renderByQuery();
+        if (count <= 0) {
+          return;
+        }
+
+        var firstResultTitle = container.querySelector('h5.title');
+        if (firstResultTitle && typeof firstResultTitle.scrollIntoView === 'function') {
+          firstResultTitle.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
     }
 
     if (clearButton) {
