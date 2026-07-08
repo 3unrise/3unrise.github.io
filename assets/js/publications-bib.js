@@ -309,7 +309,7 @@
     var htmlNames = names.map(function (name, index) {
       var safeName = escapeHtml(name);
       if (isLabMember(name, labMemberSet)) {
-        safeName = '<em class="lab-member">' + safeName + '</em>';
+        safeName = '<span class="lab-member-label">' + safeName + '</span>';
       }
 
       var key = normalizeAuthorKey(name);
