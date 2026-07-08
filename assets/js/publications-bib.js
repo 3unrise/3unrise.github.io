@@ -407,12 +407,15 @@
       groups[year].push(entry);
     });
 
-    var years = Object.keys(groups).map(function (y) { return parseInt(y, 10); }).sort(function (a, b) {
+    var years = Object.keys(groups).map(function (y) {
+      return parseInt(y, 10);
+    }).sort(function (a, b) {
       return b - a;
     });
 
     var html = '';
     years.forEach(function (year) {
+      var yearEntries = groups[year];
       html += '' +
         '<div class="row m-0 p-0" style="border-top: 1px solid #ddd; flex-direction: row-reverse;">' +
         '<div class="col-sm-1 mt-2 p-0 pr-1">' +
@@ -420,7 +423,7 @@
         '</div>' +
         '<div class="col-sm-11 p-0">' +
         '<ol class="bibliography">' +
-        groups[year].map(function (entry) {
+        yearEntries.map(function (entry) {
           return renderEntry(entry, authorLinkMap);
         }).join('') +
         '</ol></div></div>';
@@ -438,9 +441,11 @@
 
   function buildEntrySearchText(entry) {
     var f = entry.fields || {};
+    var normalizedAuthors = splitAuthors(f.author || '').map(normalizePersonName);
     var parts = [];
     parts.push(f.title || '');
     parts.push(f.author || '');
+    parts.push(normalizedAuthors.join(' '));
     parts.push(f.booktitle || '');
     parts.push(f.journal || '');
     parts.push(f.venue || '');
@@ -487,15 +492,6 @@
       })
       .filter(function (entry) {
         return entry.year > 0;
-      })
-      .sort(function (a, b) {
-        if (b.year !== a.year) {
-          return b.year - a.year;
-        }
-        if (b.month !== a.month) {
-          return b.month - a.month;
-        }
-        return (a.fields.title || '').localeCompare(b.fields.title || '');
       });
   }
 
