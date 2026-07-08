@@ -429,6 +429,52 @@
     return html;
   }
 
+  function normalizeSearchText(text) {
+    return String(text || '')
+      .toLowerCase()
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function buildEntrySearchText(entry) {
+    var f = entry.fields || {};
+    var parts = [];
+    parts.push(f.title || '');
+    parts.push(f.author || '');
+    parts.push(f.booktitle || '');
+    parts.push(f.journal || '');
+    parts.push(f.venue || '');
+    parts.push(f.display_venue || '');
+    parts.push(f.abbr || '');
+    parts.push(String(entry.year || ''));
+    return normalizeSearchText(parts.join(' '));
+  }
+
+  function filterEntries(entries, query) {
+    var normalizedQuery = normalizeSearchText(query);
+    if (!normalizedQuery) {
+      return entries;
+    }
+
+    return entries.filter(function (entry) {
+      return buildEntrySearchText(entry).indexOf(normalizedQuery) !== -1;
+    });
+  }
+
+  function updateSearchStatus(statusElement, filteredCount, totalCount, query) {
+    if (!statusElement) {
+      return;
+    }
+
+    var hasQuery = normalizeSearchText(query).length > 0;
+    if (!hasQuery) {
+      statusElement.textContent = 'Showing all ' + totalCount + ' publications.';
+      return;
+    }
+
+    statusElement.textContent = 'Showing ' + filteredCount + ' of ' + totalCount + ' publications.';
+  }
+
   function prepareEntries(rawEntries) {
     return rawEntries
       .filter(function (entry) {
@@ -459,6 +505,45 @@
       return;
     }
     container.innerHTML = '<p style="color: #b00020;">' + escapeHtml(message) + '</p>';
+  }
+
+  function renderEmptyResult(container, query) {
+    container.innerHTML = '<p>No publications matched "' + escapeHtml(query) + '".</p>';
+  }
+
+  function attachSearch(entries, authorLinkMap, container) {
+    var input = document.getElementById('publications-search');
+    var clearButton = document.getElementById('publications-search-clear');
+    var status = document.getElementById('publications-search-status');
+    var total = entries.length;
+
+    function renderByQuery() {
+      var query = input ? input.value : '';
+      var filtered = filterEntries(entries, query);
+
+      if (filtered.length === 0) {
+        renderEmptyResult(container, query);
+      } else {
+        container.innerHTML = renderGrouped(filtered, authorLinkMap);
+      }
+      updateSearchStatus(status, filtered.length, total, query);
+    }
+
+    if (input) {
+      input.addEventListener('input', renderByQuery);
+    }
+
+    if (clearButton) {
+      clearButton.addEventListener('click', function () {
+        if (input) {
+          input.value = '';
+          input.focus();
+        }
+        renderByQuery();
+      });
+    }
+
+    renderByQuery();
   }
 
   function main() {
@@ -497,7 +582,7 @@
           container.innerHTML = '<p>No publications found in bib file.</p>';
           return;
         }
-        container.innerHTML = renderGrouped(entries, authorLinkMap);
+        attachSearch(entries, authorLinkMap, container);
       })
       .catch(function (err) {
         renderError(err.message);
